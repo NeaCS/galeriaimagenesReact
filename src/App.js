@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import MiCard from './components/MiCard';
+import { info } from './data/dataCards';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Footer from './components/Footer';
 
-function App() {
+function App() { 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="App" style={{height:"100vh", background:"linear-gradient(blue, pink)"}}>
+      <Header title={"Galería de Imágenes con React"}/>
+      <Container>
+      <Row>
+        {info.map((e, i) => {
+        return (
+          <Col><MiCard title={e.title} description={e.description} urlImage={e.urlImage}/></Col>
+        )
+      })}
+      </Row>
+    </Container>
+    <Footer/>
+
+
+
+
+      </div>
+  
   );
 }
 
